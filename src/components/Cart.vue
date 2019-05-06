@@ -4,24 +4,22 @@
     <p v-show="!products.length"><i>Please add some products to cart.</i></p>
     <md-table v-if="products.length">
       <md-table-row>
-        <md-table-head md-numeric>ID</md-table-head>
+        <md-table-head md-numeric class="text-center">ID</md-table-head>
         <md-table-head>Name</md-table-head>
         <md-table-head>Price</md-table-head>
-        <md-table-head>Quantity</md-table-head>
+        <md-table-head class="text-center">Quantity</md-table-head>
         <md-table-head>Total</md-table-head>
       </md-table-row>
       <md-table-row v-for="(product, index) in products"
                     :key="product.id">
-        <md-table-cell md-numeric>{{ index + 1 }}</md-table-cell>
+        <md-table-cell md-numeric class="text-center">{{ index + 1 }}</md-table-cell>
         <md-table-cell>{{ product.title }}</md-table-cell>
         <md-table-cell>{{ product.price | currency }}</md-table-cell>
         <md-table-cell class="text-center">{{ product.quantity }}</md-table-cell>
         <md-table-cell>{{ (product.price * product.quantity) | currency }}</md-table-cell>
       </md-table-row>
       <md-table-row>
-        <md-table-cell :colspan="5" class="text-right">
-          {{ total | currency }}
-        </md-table-cell>
+        <md-table-cell :colspan="5" class="text-right"><b>{{ total | currency }}</b></md-table-cell>
       </md-table-row>
     </md-table>
     <p>
